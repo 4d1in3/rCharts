@@ -53,7 +53,8 @@ rCharts = setRefClass('rCharts', list(params = 'list', lib = 'character',
     } else {
       chartDiv = render_template(templates$chartDiv, list(chartId = params$dom))
     }
-    writeLines(c(assetHTML, chartDiv, .self$html(params$dom)))
+    #writeLines(c(assetHTML, chartDiv, .self$html(params$dom)))
+    return(paste(assetHTML, chartDiv, .self$html(params$dom)))
   },
   render = function(chartId = NULL, cdn = F){
     params$dom <<- chartId %||% params$dom
